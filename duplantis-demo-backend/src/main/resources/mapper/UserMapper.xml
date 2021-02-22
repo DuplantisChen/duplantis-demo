@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duplantis.demo.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.duplantis.demo.entity.User">
+    <constructor>
+      <idArg column="uid" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sex" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="telephone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="mail" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="create_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_date" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    uid, password, name, sex, age, telephone, mail, create_date, create_time, create_user, 
+    update_date, update_time, update_user
+  </sql>
+
+  <select id="getAll" resultType="com.duplantis.demo.entity.User">
+    select * from user
+  </select>
+
+  <delete id="deleteByUid" parameterType="java.lang.Integer">
+    delete from user
+    where uid = #{uid,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.duplantis.demo.entity.User">
+    insert into user (uid, password, name, 
+      sex, age, telephone, 
+      mail, create_date, create_time, 
+      create_user, update_date, update_time, 
+      update_user)
+    values (#{uid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{telephone,jdbcType=VARCHAR}, 
+      #{mail,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{createUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
+      #{updateUser,jdbcType=VARCHAR})
+  </insert>
+</mapper>
