@@ -44,4 +44,24 @@
       #{createUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=VARCHAR}, #{updateTime,jdbcType=VARCHAR}, 
       #{updateUser,jdbcType=VARCHAR})
   </insert>
+
+  <select id="checkUser" resultType="java.lang.Integer">
+    select count(1) from user
+    where uid = #{uid,jdbcType=INTEGER} and password = #{password,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="addUser">
+    insert into user (password, name)
+    values (#{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+  </insert>
+
+  <select id="checkUserExistence" resultType="java.lang.Integer">
+    select count(1) from user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getUid" resultType="java.lang.Integer">
+    select uid from user
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
 </mapper>
