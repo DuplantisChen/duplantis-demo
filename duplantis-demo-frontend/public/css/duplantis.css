@@ -43,13 +43,29 @@
     text-align: center;
 }
 
-.dup-center-title {
-    color:#fff;
+.dup-center-title, .dup-center-title-black, .dup-center-title-white {
     font-size: 80px;
     font-family: 'Gotham-Bold';
     text-align: center;
+}
+
+.dup-center-title {
+    color:#fff;
     padding-top: 300px;
     padding-bottom: 50px;
+}
+
+.dup-center-title-black {
+    color:#000;
+}
+
+.dup-center-title-white {
+    color: #fff;
+}
+
+.dup-border-line {
+    border: 2px solid rgb(30,58,58);
+    border-radius: 15px
 }
 
 .dup-dark-btn {
@@ -119,7 +135,7 @@
     outline: 0;
 }
 
-.col-xs-10p .col-xs-40p .col-xs-90p {
+.col-xs-5p, .col-xs-15p, .col-xs-20p, .col-xs-25p, .col-xs-30p, .col-xs-40p, .col-xs-60p, .col-xs-70p, .col-xs-80p, .col-xs-90p {
     position: relative;
     min-height: 1px;
     padding-right: 15px;
@@ -127,12 +143,40 @@
     float: left;
 }
 
-.col-xs-10p {
-    width: 10%;
+.col-xs-5p {
+    width: 5%;
+}
+
+.col-xs-15p {
+    width: 15%;
+}
+
+.col-xs-20p {
+    width: 20%;
+}
+
+.col-xs-25p {
+    width: 25%;
+}
+
+.col-xs-30p {
+    width: 30%;
 }
 
 .col-xs-40p {
     width: 40%;
+}
+
+.col-xs-60p {
+    width: 10%;
+}
+
+.col-xs-70p {
+    width: 10%;
+}
+
+.col-xs-80p {
+    width: 10%;
 }
 
 .col-xs-90p {
