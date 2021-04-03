@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duplantis.demo.mapper.ChgDetlMapper">
+  <resultMap id="BaseResultMap" type="com.duplantis.demo.data.ChgDetl">
+    <constructor>
+      <idArg column="req_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="req_staf_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_ctgy" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_item" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_plfm" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_sys_idtf" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_resn" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_dscr" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_strt_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_end_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_dura_eval" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="chg_exec_grp" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chg_exec_staf_no" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="crt_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="crt_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="ctr_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="last_upd_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="last_upd_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="last_upd_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    req_id, req_staf_no, chg_ctgy, chg_item, chg_plfm, chg_sys_idtf, chg_resn, chg_dscr, 
+    chg_strt_time, chg_end_time, chg_dura_eval, chg_exec_grp, chg_exec_staf_no, crt_date, 
+    crt_time, ctr_user, last_upd_date, last_upd_time, last_upd_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from chg_detl
+    where req_id = #{reqId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from chg_detl
+    where req_id = #{reqId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.duplantis.demo.data.ChgDetl">
+    insert into chg_detl (req_id, req_staf_no, chg_ctgy, 
+      chg_item, chg_plfm, chg_sys_idtf, 
+      chg_resn, chg_dscr, chg_strt_time, 
+      chg_end_time, chg_dura_eval, chg_exec_grp, 
+      chg_exec_staf_no, crt_date, crt_time, 
+      ctr_user, last_upd_date, last_upd_time, 
+      last_upd_user)
+    values (#{reqId,jdbcType=VARCHAR}, #{reqStafNo,jdbcType=VARCHAR}, #{chgCtgy,jdbcType=VARCHAR}, 
+      #{chgItem,jdbcType=VARCHAR}, #{chgPlfm,jdbcType=VARCHAR}, #{chgSysIdtf,jdbcType=VARCHAR}, 
+      #{chgResn,jdbcType=VARCHAR}, #{chgDscr,jdbcType=VARCHAR}, #{chgStrtTime,jdbcType=VARCHAR}, 
+      #{chgEndTime,jdbcType=VARCHAR}, #{chgDuraEval,jdbcType=INTEGER}, #{chgExecGrp,jdbcType=VARCHAR}, 
+      #{chgExecStafNo,jdbcType=VARCHAR}, #{crtDate,jdbcType=DATE}, #{crtTime,jdbcType=TIMESTAMP}, 
+      #{ctrUser,jdbcType=VARCHAR}, #{lastUpdDate,jdbcType=DATE}, #{lastUpdTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duplantis.demo.data.ChgDetl">
+    insert into chg_detl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reqId != null">
+        req_id,
+      </if>
+      <if test="reqStafNo != null">
+        req_staf_no,
+      </if>
+      <if test="chgCtgy != null">
+        chg_ctgy,
+      </if>
+      <if test="chgItem != null">
+        chg_item,
+      </if>
+      <if test="chgPlfm != null">
+        chg_plfm,
+      </if>
+      <if test="chgSysIdtf != null">
+        chg_sys_idtf,
+      </if>
+      <if test="chgResn != null">
+        chg_resn,
+      </if>
+      <if test="chgDscr != null">
+        chg_dscr,
+      </if>
+      <if test="chgStrtTime != null">
+        chg_strt_time,
+      </if>
+      <if test="chgEndTime != null">
+        chg_end_time,
+      </if>
+      <if test="chgDuraEval != null">
+        chg_dura_eval,
+      </if>
+      <if test="chgExecGrp != null">
+        chg_exec_grp,
+      </if>
+      <if test="chgExecStafNo != null">
+        chg_exec_staf_no,
+      </if>
+      <if test="crtDate != null">
+        crt_date,
+      </if>
+      <if test="crtTime != null">
+        crt_time,
+      </if>
+      <if test="ctrUser != null">
+        ctr_user,
+      </if>
+      <if test="lastUpdDate != null">
+        last_upd_date,
+      </if>
+      <if test="lastUpdTime != null">
+        last_upd_time,
+      </if>
+      <if test="lastUpdUser != null">
+        last_upd_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reqId != null">
+        #{reqId,jdbcType=VARCHAR},
+      </if>
+      <if test="reqStafNo != null">
+        #{reqStafNo,jdbcType=VARCHAR},
+      </if>
+      <if test="chgCtgy != null">
+        #{chgCtgy,jdbcType=VARCHAR},
+      </if>
+      <if test="chgItem != null">
+        #{chgItem,jdbcType=VARCHAR},
+      </if>
+      <if test="chgPlfm != null">
+        #{chgPlfm,jdbcType=VARCHAR},
+      </if>
+      <if test="chgSysIdtf != null">
+        #{chgSysIdtf,jdbcType=VARCHAR},
+      </if>
+      <if test="chgResn != null">
+        #{chgResn,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDscr != null">
+        #{chgDscr,jdbcType=VARCHAR},
+      </if>
+      <if test="chgStrtTime != null">
+        #{chgStrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="chgEndTime != null">
+        #{chgEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDuraEval != null">
+        #{chgDuraEval,jdbcType=INTEGER},
+      </if>
+      <if test="chgExecGrp != null">
+        #{chgExecGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="chgExecStafNo != null">
+        #{chgExecStafNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDate != null">
+        #{crtDate,jdbcType=DATE},
+      </if>
+      <if test="crtTime != null">
+        #{crtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctrUser != null">
+        #{ctrUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=DATE},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null">
+        #{lastUpdUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duplantis.demo.data.ChgDetl">
+    update chg_detl
+    <set>
+      <if test="reqStafNo != null">
+        req_staf_no = #{reqStafNo,jdbcType=VARCHAR},
+      </if>
+      <if test="chgCtgy != null">
+        chg_ctgy = #{chgCtgy,jdbcType=VARCHAR},
+      </if>
+      <if test="chgItem != null">
+        chg_item = #{chgItem,jdbcType=VARCHAR},
+      </if>
+      <if test="chgPlfm != null">
+        chg_plfm = #{chgPlfm,jdbcType=VARCHAR},
+      </if>
+      <if test="chgSysIdtf != null">
+        chg_sys_idtf = #{chgSysIdtf,jdbcType=VARCHAR},
+      </if>
+      <if test="chgResn != null">
+        chg_resn = #{chgResn,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDscr != null">
+        chg_dscr = #{chgDscr,jdbcType=VARCHAR},
+      </if>
+      <if test="chgStrtTime != null">
+        chg_strt_time = #{chgStrtTime,jdbcType=VARCHAR},
+      </if>
+      <if test="chgEndTime != null">
+        chg_end_time = #{chgEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="chgDuraEval != null">
+        chg_dura_eval = #{chgDuraEval,jdbcType=INTEGER},
+      </if>
+      <if test="chgExecGrp != null">
+        chg_exec_grp = #{chgExecGrp,jdbcType=VARCHAR},
+      </if>
+      <if test="chgExecStafNo != null">
+        chg_exec_staf_no = #{chgExecStafNo,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDate != null">
+        crt_date = #{crtDate,jdbcType=DATE},
+      </if>
+      <if test="crtTime != null">
+        crt_time = #{crtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ctrUser != null">
+        ctr_user = #{ctrUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        last_upd_date = #{lastUpdDate,jdbcType=DATE},
+      </if>
+      <if test="lastUpdTime != null">
+        last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null">
+        last_upd_user = #{lastUpdUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where req_id = #{reqId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duplantis.demo.data.ChgDetl">
+    update chg_detl
+    set req_staf_no = #{reqStafNo,jdbcType=VARCHAR},
+      chg_ctgy = #{chgCtgy,jdbcType=VARCHAR},
+      chg_item = #{chgItem,jdbcType=VARCHAR},
+      chg_plfm = #{chgPlfm,jdbcType=VARCHAR},
+      chg_sys_idtf = #{chgSysIdtf,jdbcType=VARCHAR},
+      chg_resn = #{chgResn,jdbcType=VARCHAR},
+      chg_dscr = #{chgDscr,jdbcType=VARCHAR},
+      chg_strt_time = #{chgStrtTime,jdbcType=VARCHAR},
+      chg_end_time = #{chgEndTime,jdbcType=VARCHAR},
+      chg_dura_eval = #{chgDuraEval,jdbcType=INTEGER},
+      chg_exec_grp = #{chgExecGrp,jdbcType=VARCHAR},
+      chg_exec_staf_no = #{chgExecStafNo,jdbcType=VARCHAR},
+      crt_date = #{crtDate,jdbcType=DATE},
+      crt_time = #{crtTime,jdbcType=TIMESTAMP},
+      ctr_user = #{ctrUser,jdbcType=VARCHAR},
+      last_upd_date = #{lastUpdDate,jdbcType=DATE},
+      last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP},
+      last_upd_user = #{lastUpdUser,jdbcType=VARCHAR}
+    where req_id = #{reqId,jdbcType=VARCHAR}
+  </update>
+</mapper>

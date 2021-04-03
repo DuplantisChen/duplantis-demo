@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duplantis.demo.mapper.ChgParaMapper">
+  <resultMap id="BaseResultMap" type="com.duplantis.demo.data.ChgPara">
+    <constructor>
+      <idArg column="para_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="para_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="para_dscr" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="parent_type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="para_dscr_chn" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="crt_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="crt_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="crt_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="last_upd_date" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="last_upd_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="last_upd_user" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    para_id, para_type, para_dscr, parent_type, para_dscr_chn, crt_date, crt_time, crt_user, 
+    last_upd_date, last_upd_time, last_upd_user
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from chg_para
+    where para_id = #{paraId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from chg_para
+    where para_id = #{paraId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.duplantis.demo.data.ChgPara">
+    insert into chg_para (para_id, para_type, para_dscr, 
+      parent_type, para_dscr_chn, crt_date, 
+      crt_time, crt_user, last_upd_date, 
+      last_upd_time, last_upd_user)
+    values (#{paraId,jdbcType=VARCHAR}, #{paraType,jdbcType=VARCHAR}, #{paraDscr,jdbcType=VARCHAR}, 
+      #{parentType,jdbcType=VARCHAR}, #{paraDscrChn,jdbcType=VARCHAR}, #{crtDate,jdbcType=DATE}, 
+      #{crtTime,jdbcType=TIMESTAMP}, #{crtUser,jdbcType=VARCHAR}, #{lastUpdDate,jdbcType=DATE}, 
+      #{lastUpdTime,jdbcType=TIMESTAMP}, #{lastUpdUser,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.duplantis.demo.data.ChgPara">
+    insert into chg_para
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="paraId != null">
+        para_id,
+      </if>
+      <if test="paraType != null">
+        para_type,
+      </if>
+      <if test="paraDscr != null">
+        para_dscr,
+      </if>
+      <if test="parentType != null">
+        parent_type,
+      </if>
+      <if test="paraDscrChn != null">
+        para_dscr_chn,
+      </if>
+      <if test="crtDate != null">
+        crt_date,
+      </if>
+      <if test="crtTime != null">
+        crt_time,
+      </if>
+      <if test="crtUser != null">
+        crt_user,
+      </if>
+      <if test="lastUpdDate != null">
+        last_upd_date,
+      </if>
+      <if test="lastUpdTime != null">
+        last_upd_time,
+      </if>
+      <if test="lastUpdUser != null">
+        last_upd_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="paraId != null">
+        #{paraId,jdbcType=VARCHAR},
+      </if>
+      <if test="paraType != null">
+        #{paraType,jdbcType=VARCHAR},
+      </if>
+      <if test="paraDscr != null">
+        #{paraDscr,jdbcType=VARCHAR},
+      </if>
+      <if test="parentType != null">
+        #{parentType,jdbcType=VARCHAR},
+      </if>
+      <if test="paraDscrChn != null">
+        #{paraDscrChn,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDate != null">
+        #{crtDate,jdbcType=DATE},
+      </if>
+      <if test="crtTime != null">
+        #{crtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtUser != null">
+        #{crtUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        #{lastUpdDate,jdbcType=DATE},
+      </if>
+      <if test="lastUpdTime != null">
+        #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null">
+        #{lastUpdUser,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duplantis.demo.data.ChgPara">
+    update chg_para
+    <set>
+      <if test="paraType != null">
+        para_type = #{paraType,jdbcType=VARCHAR},
+      </if>
+      <if test="paraDscr != null">
+        para_dscr = #{paraDscr,jdbcType=VARCHAR},
+      </if>
+      <if test="parentType != null">
+        parent_type = #{parentType,jdbcType=VARCHAR},
+      </if>
+      <if test="paraDscrChn != null">
+        para_dscr_chn = #{paraDscrChn,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDate != null">
+        crt_date = #{crtDate,jdbcType=DATE},
+      </if>
+      <if test="crtTime != null">
+        crt_time = #{crtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtUser != null">
+        crt_user = #{crtUser,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdDate != null">
+        last_upd_date = #{lastUpdDate,jdbcType=DATE},
+      </if>
+      <if test="lastUpdTime != null">
+        last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null">
+        last_upd_user = #{lastUpdUser,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where para_id = #{paraId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duplantis.demo.data.ChgPara">
+    update chg_para
+    set para_type = #{paraType,jdbcType=VARCHAR},
+      para_dscr = #{paraDscr,jdbcType=VARCHAR},
+      parent_type = #{parentType,jdbcType=VARCHAR},
+      para_dscr_chn = #{paraDscrChn,jdbcType=VARCHAR},
+      crt_date = #{crtDate,jdbcType=DATE},
+      crt_time = #{crtTime,jdbcType=TIMESTAMP},
+      crt_user = #{crtUser,jdbcType=VARCHAR},
+      last_upd_date = #{lastUpdDate,jdbcType=DATE},
+      last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP},
+      last_upd_user = #{lastUpdUser,jdbcType=VARCHAR}
+    where para_id = #{paraId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,140 @@
+/* font */
+@font-face {
+    font-family: Gotham-Bold;
+    src: url('../font/Gotham-Bold.otf')  format('opentype');
+}
+
+@font-face {
+    font-family: Gotham-Light;
+    src: url('../font/Gotham-Light.otf')  format('opentype');
+}
+
+.dup-font-gotham-light {
+    font-family: 'Gotham-Light';
+}
+
+.dup-font-gotham-bold {
+    font-family: 'Gotham-Bold';
+}
+
+/* page-header */
+.dup-page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+    font-family: 'Gotham-Bold';
+    color: rgb(25,38,38) !important;
+}
+
+/* list */
+.list-group-item {
+    background-color: #ffffff !important;
+    color: rgb(30,58,58) !important;
+    font-family: 'Gotham-Bold';
+}
+
+.dup-active-list-item {
+    background-color: rgb(30,58,58) !important;
+    color: #ffffff !important;
+    font-family: 'Gotham-Bold';
+}
+
+.dup-text-center-align {
+    text-align: center;
+}
+
+.dup-center-title {
+    color:#fff;
+    font-size: 80px;
+    font-family: 'Gotham-Bold';
+    text-align: center;
+    padding-top: 300px;
+    padding-bottom: 50px;
+}
+
+.dup-dark-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: normal;
+    width:150px;
+    height: auto;
+    font-family: 'Gotham-Bold';
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    background-color: rgb(30,58,58);
+    color: #fff;
+}
+
+.dup-bright-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: normal;
+    width:150px;
+    height: auto;
+    font-family: 'Gotham-Bold';
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    border: 1px solid transparent;
+    border-radius: 40px;
+    background-color: #fff;
+    color:  rgb(30,58,58);
+}
+
+.dup-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(30,58,58);
+    filter: alpha(opacity=98);
+    opacity: 0.98;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+}
+
+.col-xs-10p .col-xs-40p .col-xs-90p {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+}
+
+.col-xs-10p {
+    width: 10%;
+}
+
+.col-xs-40p {
+    width: 40%;
+}
+
+.col-xs-90p {
+    width: 90%;
+}
